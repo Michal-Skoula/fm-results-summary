@@ -1,0 +1,265 @@
+/*
+# Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Light red: hsl(0, 100%, 67%)
+- Orangey yellow: hsl(39, 100%, 56%)
+- Green teal: hsl(166, 100%, 37%)
+- Cobalt blue: hsl(234, 85%, 45%)
+
+## Gradients
+
+- Light slate blue (background): hsl(252, 100%, 67%)
+- Light royal blue (background): hsl(241, 81%, 54%)
+
+- Violet blue (circle): hsla(256, 72%, 46%, 1)
+- Persian blue (circle): hsla(241, 72%, 46%, 0)
+
+
+
+### Neutral
+
+- White: hsl(0, 0%, 100%)
+- Pale blue: hsl(221, 100%, 96%)
+- Light lavender: hsl(241, 100%, 89%)
+- Dark gray blue: hsl(224, 30%, 27%)
+
+### Notes
+
+Use transparency to get the colour variations necessary to match the design. Hint: look into using `hsla()`.
+
+## Typography
+
+### Body Copy
+
+- Font size (paragraphs): 18px
+
+### Font
+
+- Family: [Hanken Grotesk](https://fonts.google.com/specimen/Hanken+Grotesk)
+- Weights: 500, 700, 800
+*/
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
+
+:root {
+/*Summary background colors*/
+--background-lightred: hsla(0, 100%, 67%, 0.1);
+--background-orangeyellow: hsla(39, 100%, 56%, 0.1);
+--background-greenteal: hsla(166, 100%, 37%, 0.1);
+--background-cobaltblue: hsla(234, 85%, 45%, 0.1);
+/*Summary text*/
+--text-lightred: hsl(0, 100%, 67%);
+--text-orangeyellow: hsl(39, 100%, 56%);
+--text-greenteal: hsl(166, 100%, 37%);
+--text-cobaltblue: hsl(234, 85%, 45%);
+
+/*Background of results container*/
+--gradient-lightslateblue: hsl(252, 100%, 67%);
+--gradient-lightroyalblue: hsl(241, 81%, 54%);
+/*Background of results circle */
+--gradient-violetblue: hsla(256, 72%, 46%, 1);
+--gradient-persianblue: hsla(241, 72%, 46%, 0);
+
+--neutral-white: hsl(0, 0%, 100%);
+--neutral-paleblue: hsl(221, 100%, 96%);
+--neutral-lightlavender: hsl(241, 100%, 89%);
+--neutral-darkgrayblue: hsl(224, 30%, 27%);
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+*{
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+}
+body{
+  min-width:100%;
+  min-height:100vh;
+  overflow:hidden;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size:62.5%;
+  background-color: var(--neutral-paleblue);
+  display:grid;
+}
+.container{
+  display:grid;
+  vertical-align:middle;
+  margin:auto;
+  grid-template-columns: 1fr 1fr;
+  max-width:90%;
+  background-color: var(--neutral-white);
+  box-shadow: 12px 14px 12px 0px rgba(0,0,0,0.15);
+  border-radius:1.5rem;
+  overflow: hidden;
+  /*gap:2rem;*/
+  place-self: center;
+}
+.result-container{
+  background:linear-gradient(
+    180deg, 
+    var(--gradient-lightslateblue),
+    var(--gradient-lightroyalblue)
+  );
+  width:100%;
+  color:white;
+  text-align: center;
+  border-radius:1.5rem;
+}
+.score-circle-area{
+  background:linear-gradient(
+    180deg,
+    var(--gradient-violetblue),
+    var(--gradient-persianblue)
+  );
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  max-width: 60%;
+  vertical-align: center;
+  text-align: center;
+  margin:auto;
+  display:grid;
+  place-items: center;
+}
+.result-container h1 {
+  color:var(--neutral-lightlavender);
+  font-size:1.5rem;
+  margin:1rem 0 1.5rem 0;
+}
+.result-container h2 {
+  font-size:4rem;
+}
+.result-container h3 {
+  vertical-align: top;
+  color: var(--neutral-lightlavender);
+  font-size:1rem;
+}
+.result-container h4 {
+  font-size:1.5rem;
+  margin:1rem 0 0.8rem 0;
+}
+.result-container h5 {
+  font-size: .85rem;
+  color: var(--neutral-lightlavender);
+  max-width:60%;
+  margin:0 auto 3rem auto;
+}
+.summary-container {
+  width:80%;
+  vertical-align: top;
+  display:grid;
+  grid-template-rows: 1fr 6fr;
+  margin: 0 auto 0 auto;
+}
+.four-metrics-area{
+  display:grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 2.5fr;
+  gap:1rem;
+}
+.summary-container h2{
+  font-size:1.5rem;
+  margin-top:1rem;
+  margin-bottom:1rem;
+}
+.reaction, .memory, .verbal, .visual {
+  border-radius: 0.5rem;
+  display:flex;
+  justify-content: space-between;
+  place-items: center;
+  text-align:center;
+  font-weight: 800;
+  font-size: 1rem;
+}
+.four-metrics-align-grid {
+  display:grid;
+  grid-template-columns: 2rem 1fr;
+  place-items: center;
+  padding:0 0 0 0.5rem;
+}
+.reaction {
+  background-color: var(--background-lightred);
+  color: var(--text-lightred);
+}
+.memory {
+  background-color: var(--background-orangeyellow);
+  color: var(--text-orangeyellow);
+}
+.verbal {
+  background-color: var(--background-greenteal);
+  color: var(--text-greenteal);
+}
+.visual {
+  background-color: var(--background-cobaltblue);
+  color: var(--text-cobaltblue);
+
+}
+.summary-container span {
+  font-weight: 800;
+  color:var(--neutral-darkgrayblue);
+}
+.summary-container h4 {
+  color:var(--neutral-darkgrayblue);
+  font-weight: 500;
+  padding:0 1rem 0 0;
+}
+
+.summary-container button {
+  color:var(--neutral-white);
+  background: var(--neutral-darkgrayblue);
+  width:100%;
+  height:3rem;
+  border-radius: 1.5rem;
+  font-weight: bold;
+  display: grid;
+  place-self: center;
+  place-items: center;
+  transition: opacity 0.5s, background 0.5s;
+  border:none;
+  margin-bottom:1rem;
+}
+
+@keyframes button-hover {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+.summary-container button:hover {
+  animation: button-hover 500ms;
+  background:linear-gradient(
+    180deg, 
+    var(--gradient-lightslateblue),
+    var(--gradient-lightroyalblue)
+    );
+}
+.summary-container button:active{
+  opacity:0.8;
+}
+@media(width < 600px) {
+  .container {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    border-radius: 0 0 2rem 2rem;
+  }
+  .result-container {
+    border-radius: 0 0 2rem 2rem;
+  }
+  .score-circle-area{
+    max-width:40%;
+  }
+}
