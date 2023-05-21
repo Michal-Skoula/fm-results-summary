@@ -1,4 +1,3 @@
-console.log('working!');
 let reactionResult = 10;
 let memoryResult = 10;
 let verbalResult = 10;
