@@ -38,14 +38,4 @@ function getResult() {
   else {
     percentageArea.innerHTML = 0;
   }
-  
-  
-  /* 
-  Okay: 0-30
-  Fine: 31 - 50
-  Good 51 - 70
-  Great - 71 - 90
-  Excellent - 91+
-  
-  */
 }
