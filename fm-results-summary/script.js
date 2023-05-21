@@ -1,8 +1,8 @@
-let reactionResult = 10;
-let memoryResult = 10;
-let verbalResult = 10;
-let visualResult = 9;
-const averageScorePercent = 46; // calculated from original img would be 46%, but that doen't really make sense with higher numbers
+let reactionResult = 100;
+let memoryResult = 0;
+let verbalResult = 0;
+let visualResult = 0;
+const averageScorePercent = 46; // when calculated from original img it is 46%, not sure if that is how the system works though
 
 function getResult() {
   const reactionArea = document.querySelector('.js-reaction');
@@ -12,7 +12,6 @@ function getResult() {
   const resultArea = document.querySelector('.js-result');
   const scoreArea = document.querySelector('.js-score');
   const percentageArea = document.querySelector('.js-percentage');
-  const higherLowerArea = document.querySelector('.js-higher-lower');
   let finalResult = Math.round((reactionResult + memoryResult + verbalResult + visualResult) / 4);
 
   reactionArea.innerHTML = reactionResult;
@@ -29,12 +28,15 @@ function getResult() {
   else scoreArea.innerHTML = 'unknown';
 
   if(finalResult >= averageScorePercent) {
-    higherLowerArea.innerHTML = 'higher';
-    percentageArea.innerHTML = Math.round((finalResult / averageScorePercent) * 100) - 100;
+    if(Math.round((finalResult / averageScorePercent) * 100) - 100 >= 100){
+      percentageArea.innerHTML = 100;
+    }
+    else{
+      percentageArea.innerHTML = Math.round((finalResult / averageScorePercent) * 100) - 100;
+    }
   }
-  else if(finalResult < averageScorePercent) {
-    higherLowerArea.innerHTML = 'lower'
-    percentageArea.innerHTML = 100 - Math.round((finalResult / averageScorePercent) * 100);
+  else {
+    percentageArea.innerHTML = 0;
   }
   
   
